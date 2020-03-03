@@ -35,3 +35,4 @@ CTA_Pompier
 # Folder
 build/
 CMakeFiles/
+.vscode/
