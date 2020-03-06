@@ -1,3 +1,6 @@
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
+
 #include <utility>
 #include <string>
 #include <SFML/Graphics.hpp>
@@ -13,7 +16,7 @@ namespace cta::engine {
             ~Window() = default;
             
             void setSize(std::pair<std::size_t, std::size_t>);
-            std::pair<std::size_t, std::size_t> getSize() { return _size; };
+            const std::pair<std::size_t, std::size_t> getSize() { return _size; };
 
             void setTitle(const std::string &);
             const std::string getTitle() { return _name; };            
@@ -21,7 +24,8 @@ namespace cta::engine {
             bool isOpen() { return _window.isOpen(); }
             bool pollEvent(Event *evt) { return _window.pollEvent(evt->getEvent()); }
             void close() { _window.close(); }
-            void clear(std::tuple<unsigned int, unsigned int, unsigned int> color) { _window.clear(sf::Color(std::get<0>(color), std::get<1>(color), std::get<2>(color))); };
+            void clear(std::tuple<unsigned short int, unsigned short int, unsigned short int> color) { _window.clear(sf::Color(std::get<0>(color), std::get<1>(color), std::get<2>(color))); };
+            void draw(const sf::Drawable &drawable);
             void display() { _window.display(); };
         
         private:
@@ -30,3 +34,5 @@ namespace cta::engine {
             sf::RenderWindow _window;
     };
 }
+
+#endif

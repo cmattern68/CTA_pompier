@@ -1,10 +1,3 @@
-##
-## EPITECH PROJECT, 2019
-## CPP_babel_2019
-## File description:
-## CMakeList.txt
-##
-
 cmake_minimum_required(VERSION 3.5)
 
 project(CTA_Pompier)
@@ -23,13 +16,18 @@ find_package(SFML 2.5.1 REQUIRED COMPONENTS audio graphics window system)
 #
 
 set(ENGINE_INC    
-    ./Sources/Engine/Window/
-    ./Sources/Engine/Event/
+  ./Sources/Engine/Window/
+  ./Sources/Engine/Event/
+  ./Sources/Engine/Shape/
+  ./Sources/Engine/Shape/RectangleShape/
+  ./Sources/Engine/Shape/CircleShape/
 )
 
 set(ENGINE_SRC    
     ./Sources/Engine/Window/Window.cpp
     ./Sources/Engine/Event/Event.cpp
+    ./Sources/Engine/Shape/RectangleShape/RectangleShape.cpp
+    ./Sources/Engine/Shape/CircleShape/CircleShape.cpp
 )
 
 #
@@ -38,16 +36,12 @@ set(ENGINE_SRC
 
 set(GAME_INC
     ./Sources/Main/
-    ./Sources/Core/
-    ./Sources/Engine/Window/
-    ./Sources/Engine/Event/
+    ./Sources/Core/    
 )
 
 set(GAME_SRC
     ./Sources/Main/Main.cpp
-    ./Sources/Core/Core.cpp
-    ./Sources/Engine/Window/Window.cpp
-    ./Sources/Engine/Event/Event.cpp
+    ./Sources/Core/Core.cpp    
 )
 
 add_executable(CTA_Pompier ${ENGINE_SRC} ${GAME_SRC})

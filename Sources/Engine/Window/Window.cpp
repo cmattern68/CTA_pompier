@@ -16,4 +16,8 @@ namespace cta::engine {
         _name = name;
         _window.setTitle(_name.c_str());
     }
+
+    void Window::draw(const sf::Drawable &drawable) {
+        _window.draw(drawable);
+    }
 }

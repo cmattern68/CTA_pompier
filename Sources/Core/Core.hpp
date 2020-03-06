@@ -1,3 +1,6 @@
+#ifndef CORE_HPP_
+#define CORE_HPP_
+
 namespace cta {
     class Core {
         public:
@@ -8,3 +11,5 @@ namespace cta {
             void run(int, char **);
     };
 }
+
+#endif
