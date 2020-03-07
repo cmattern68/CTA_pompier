@@ -19,5 +19,5 @@ namespace cta::engine {
 
     void Window::draw(const sf::Drawable &drawable) {
         _window.draw(drawable);
-    }
+    }    
 }

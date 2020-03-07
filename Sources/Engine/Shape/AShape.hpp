@@ -4,13 +4,10 @@
 #include <tuple>
 
 namespace cta::engine {
-
-    #ifndef ENUM_SHAPE_TYPE
-    #define ENUM_SHAPE_TYPE
+    
     enum Type {        
         RECTANGLE_SHAPE
-    };
-    #endif
+    };    
 
     class AShape {
 

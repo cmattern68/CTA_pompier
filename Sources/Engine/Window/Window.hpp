@@ -13,7 +13,7 @@ namespace cta::engine {
         public:
             Window(std::pair<std::size_t, std::size_t>, std::string);
             Window(const Window &) = delete;
-            ~Window() = default;
+            ~Window() = default;            
             
             void setSize(std::pair<std::size_t, std::size_t>);
             const std::pair<std::size_t, std::size_t> getSize() { return _size; };

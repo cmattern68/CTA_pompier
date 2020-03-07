@@ -21,6 +21,7 @@ set(ENGINE_INC
   ./Sources/Engine/Shape/
   ./Sources/Engine/Shape/RectangleShape/
   ./Sources/Engine/Shape/CircleShape/
+  ./Sources/Engine/Texture/
 )
 
 set(ENGINE_SRC    
@@ -28,6 +29,7 @@ set(ENGINE_SRC
     ./Sources/Engine/Event/Event.cpp
     ./Sources/Engine/Shape/RectangleShape/RectangleShape.cpp
     ./Sources/Engine/Shape/CircleShape/CircleShape.cpp
+    ./Sources/Engine/Texture/Texture.cpp
 )
 
 #
@@ -36,12 +38,24 @@ set(ENGINE_SRC
 
 set(GAME_INC
     ./Sources/Main/
-    ./Sources/Core/    
+    ./Sources/Core/
+    ./Sources/Game/
+    ./Sources/Game/Navbar/
+    ./Sources/Game/SceneryManager/
+    ./Sources/Game/Scene/
+    ./Sources/Game/Scene/MissionOverview/
+    ./Sources/Game/Scene/Settings/
 )
 
 set(GAME_SRC
     ./Sources/Main/Main.cpp
-    ./Sources/Core/Core.cpp    
+    ./Sources/Core/Core.cpp 
+    ./Sources/Game/Game.cpp
+    ./Sources/Game/Navbar/Navbar.cpp
+    ./Sources/Game/SceneryManager/SceneryManager.cpp
+    ./Sources/Game/Scene/AScene.cpp
+    ./Sources/Game/Scene/MissionOverview/MissionOverview.cpp
+    ./Sources/Game/Scene/Settings/Settings.cpp
 )
 
 add_executable(CTA_Pompier ${ENGINE_SRC} ${GAME_SRC})
