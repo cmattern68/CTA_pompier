@@ -22,6 +22,7 @@ set(ENGINE_INC
   ./Sources/Engine/Shape/RectangleShape/
   ./Sources/Engine/Shape/CircleShape/
   ./Sources/Engine/Texture/
+  ./Sources/Engine/Text/
 )
 
 set(ENGINE_SRC    
@@ -30,6 +31,19 @@ set(ENGINE_SRC
     ./Sources/Engine/Shape/RectangleShape/RectangleShape.cpp
     ./Sources/Engine/Shape/CircleShape/CircleShape.cpp
     ./Sources/Engine/Texture/Texture.cpp
+    ./Sources/Engine/Text/Text.cpp
+)
+
+#
+# Shared Sources & Inc
+#
+
+set(SHARED_INC
+    ./Sources/Game/Shared/CallPopup
+)
+
+set(SHARED_SRC
+./Sources/Game/Shared/CallPopup/CallPopup.cpp
 )
 
 #
@@ -58,8 +72,8 @@ set(GAME_SRC
     ./Sources/Game/Scene/Settings/Settings.cpp
 )
 
-add_executable(CTA_Pompier ${ENGINE_SRC} ${GAME_SRC})
-target_include_directories(CTA_Pompier PUBLIC ${ENGINE_INC} ${GAME_INC})
+add_executable(CTA_Pompier ${ENGINE_SRC} ${SHARED_SRC} ${GAME_SRC})
+target_include_directories(CTA_Pompier PUBLIC ${ENGINE_INC} ${SHARED_INC} ${GAME_INC})
 if(SFML_FOUND)
   target_include_directories(CTA_Pompier PUBLIC ${SFML_INCLUDE_DIRS})
   target_link_libraries(CTA_Pompier PUBLIC ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} sfml-graphics sfml-audio sfml-window sfml-system)
