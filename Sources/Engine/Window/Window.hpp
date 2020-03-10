@@ -16,10 +16,12 @@ namespace cta::engine {
             ~Window() = default;            
             
             void setSize(std::pair<std::size_t, std::size_t>);
-            const std::pair<std::size_t, std::size_t> getSize() { return _size; };
+            const std::pair<std::size_t, std::size_t> getSize() { return std::make_pair(_window.getSize().x, _window.getSize().y);; };
 
             void setTitle(const std::string &);
             const std::string getTitle() { return _name; };            
+
+            std::pair<std::size_t, std::size_t> getPosition();
 
             bool isOpen() { return _window.isOpen(); }
             bool pollEvent(Event *evt) { return _window.pollEvent(evt->getEvent()); }

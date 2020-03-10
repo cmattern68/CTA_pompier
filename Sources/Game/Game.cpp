@@ -18,8 +18,17 @@ namespace cta::game
     void Game::catchEvent() {
         if (_event->getType() == cta::engine::Closed)
             _window->close();
-        if (!_isCallable && _call != nullptr)
-            _call->onEvent();
+        if (!_isCallable && _call != nullptr) {
+            std::string callReturn = _call->onEvent(_window);
+            if (callReturn == "decline") {
+                delete(_call.release());
+                _isCallable = true;
+                _call = nullptr;
+            } else if (callReturn == "answer") {
+                delete(_call.release());                
+                _call = nullptr;
+            }                
+        }            
     }
 
     void Game::run() {
@@ -38,9 +47,11 @@ namespace cta::game
     }
 
     void Game::dispatchUserCall() {
+        int rd = rand() % 50;
+        std::cout << rd << std::endl;
         srand(time(NULL));        
-        if (/*(rand() % 50)*/ 18 == 18) {
-            _call = std::make_unique<cta::shared::CallPopup>();
+        if ((rd == 18)) {
+            _call = std::make_unique<cta::shared::CallPopup>(_window);
             _isCallable = false;            
         }        
     }

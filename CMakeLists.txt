@@ -25,6 +25,7 @@ set(ENGINE_INC
   ./Sources/Engine/Text/
   ./Sources/Engine/Button/
   ./Sources/Engine/Button/SpriteButton
+  ./Sources/Engine/Sound
 )
 
 set(ENGINE_SRC    
@@ -35,6 +36,7 @@ set(ENGINE_SRC
     ./Sources/Engine/Texture/Texture.cpp
     ./Sources/Engine/Text/Text.cpp
     ./Sources/Engine/Button/SpriteButton/SpriteButton.cpp
+    ./Sources/Engine/Sound/Sound.cpp
 )
 
 #

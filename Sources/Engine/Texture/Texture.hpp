@@ -22,7 +22,7 @@ namespace cta::engine {
 
             sf::Sprite getSprite() { return _sprite; };
             std::pair<std::size_t, std::size_t> getPos() { return _pos; };
-            Rect getRect();
+            Rect getRect() { return Rect {_rect.left, _rect.top, _rect.width, _rect.height}; };
             std::pair<float, float> getScale() { return _scale; };
 
             void setPos(std::pair<std::size_t, std::size_t>);
