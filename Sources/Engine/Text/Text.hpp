@@ -16,7 +16,7 @@ namespace cta::engine {
 
     class Text {
         public:
-            Text(std::pair<std::size_t, std::size_t>, std::tuple<unsigned short int, unsigned short int, unsigned short int> , std::size_t , std::string, std::string, textStyle);
+            Text(std::pair<std::size_t, std::size_t>, std::tuple<unsigned short int, unsigned short int, unsigned short int>, std::size_t, std::string, std::string, textStyle);
             Text(const Text &) = delete;
             ~Text() = default;
 

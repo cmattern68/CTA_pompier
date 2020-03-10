@@ -23,6 +23,8 @@ set(ENGINE_INC
   ./Sources/Engine/Shape/CircleShape/
   ./Sources/Engine/Texture/
   ./Sources/Engine/Text/
+  ./Sources/Engine/Button/
+  ./Sources/Engine/Button/SpriteButton
 )
 
 set(ENGINE_SRC    
@@ -32,6 +34,7 @@ set(ENGINE_SRC
     ./Sources/Engine/Shape/CircleShape/CircleShape.cpp
     ./Sources/Engine/Texture/Texture.cpp
     ./Sources/Engine/Text/Text.cpp
+    ./Sources/Engine/Button/SpriteButton/SpriteButton.cpp
 )
 
 #
