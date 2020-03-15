@@ -5,6 +5,7 @@
 #include "Navbar.hpp"
 #include "CallPopup.hpp"
 #include "SceneryManager.hpp"
+#include "Settings.hpp"
 
 namespace cta::game {
     class Game {
@@ -26,7 +27,9 @@ namespace cta::game {
             std::unique_ptr<Navbar> _navbar;
             std::unique_ptr<SceneryManager> _manager;
             std::unique_ptr<cta::shared::CallPopup> _call;
+            std::unique_ptr<cta::shared::Settings> _settings;
             bool _isCallable;
+            bool _isPaused;
     };
 }
 

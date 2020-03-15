@@ -1,23 +1,23 @@
-#include "MissionOverview.hpp"
+#include "VehiclesOverview.hpp"
 
 namespace cta::game::scene
 {
-    MissionOverview::MissionOverview() {        
+    VehiclesOverview::VehiclesOverview() {        
         _text = std::make_unique<cta::engine::Text>(
             std::make_pair(60, 150),
             std::make_tuple(0, 0, 0),
             18,
-            "MissionOverview",
+            "VehiclesOverview",
             "Resources/Font/OpenSans.ttf",
             cta::engine::textStyle::REGULAR
         );
     }
 
-    void MissionOverview::performScene() {
+    void VehiclesOverview::performScene() {
 
     }
 
-    void MissionOverview::drawScene(std::shared_ptr<cta::engine::Window> &window) {
+    void VehiclesOverview::drawScene(std::shared_ptr<cta::engine::Window> &window) {
         window->draw(_text->getText());
     }
 }

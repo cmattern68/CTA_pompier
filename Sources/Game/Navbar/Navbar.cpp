@@ -14,10 +14,24 @@ namespace cta::game
             cta::engine::Rect {0, 0, 184, 304},
             std::make_pair(0.17, 0.17)
         );
+        _settingsBtn = std::make_unique<cta::engine::button::SpriteButton>(
+                std::make_pair((1920 - 52), (4)),
+                "Resources/Settings/settings.png",
+                cta::engine::Rect {0, 0, 48, 48},
+                std::make_pair(1, 1),
+                true
+        );
+    }
+
+    bool Navbar::onEvent(std::shared_ptr<cta::engine::Window> &window) {        
+        if (_settingsBtn->isClicked(window))
+            return true;
+        return false;
     }
 
     void Navbar::draw(std::shared_ptr<cta::engine::Window> &window) {
         window->draw(_background->getShape());
         window->draw(_icon->getSprite());
+        _settingsBtn->draw(window);
     }
 }

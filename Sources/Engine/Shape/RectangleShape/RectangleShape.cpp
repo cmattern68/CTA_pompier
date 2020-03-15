@@ -24,4 +24,9 @@ namespace cta::engine::shape {
         _size = {(float)size.first, (float)size.second};
         _rectangleShape.setSize(_size);
     }
+
+    void RectangleShape::setBorder(std::size_t size, std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {
+        _rectangleShape.setOutlineThickness(size);
+        _rectangleShape.setOutlineColor(sf::Color(std::get<0>(color), std::get<1>(color), std::get<2>(color)));
+    }
 }

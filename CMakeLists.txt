@@ -45,10 +45,12 @@ set(ENGINE_SRC
 
 set(SHARED_INC
     ./Sources/Game/Shared/CallPopup
+    ./Sources/Game/Shared/Settings
 )
 
 set(SHARED_SRC
-./Sources/Game/Shared/CallPopup/CallPopup.cpp
+    ./Sources/Game/Shared/CallPopup/CallPopup.cpp
+    ./Sources/Game/Shared/Settings/Settings.cpp
 )
 
 #
@@ -62,8 +64,9 @@ set(GAME_INC
     ./Sources/Game/Navbar/
     ./Sources/Game/SceneryManager/
     ./Sources/Game/Scene/
-    ./Sources/Game/Scene/MissionOverview/
-    ./Sources/Game/Scene/Settings/
+    ./Sources/Game/Scene/MissionOverview
+    ./Sources/Game/Scene/VehiclesOverview
+    ./Sources/Game/Scene/RadioOverview
 )
 
 set(GAME_SRC
@@ -73,8 +76,9 @@ set(GAME_SRC
     ./Sources/Game/Navbar/Navbar.cpp
     ./Sources/Game/SceneryManager/SceneryManager.cpp
     ./Sources/Game/Scene/AScene.cpp
-    ./Sources/Game/Scene/MissionOverview/MissionOverview.cpp
-    ./Sources/Game/Scene/Settings/Settings.cpp
+    ./Sources/Game/Scene/MissionOverview/MissionOverview.cpp    
+    ./Sources/Game/Scene/VehiclesOverview/VehiclesOverview.cpp
+    ./Sources/Game/Scene/RadioOverview/RadioOverview.cpp
 )
 
 add_executable(CTA_Pompier ${ENGINE_SRC} ${SHARED_SRC} ${GAME_SRC})

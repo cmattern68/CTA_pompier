@@ -1,23 +1,23 @@
-#include "MissionOverview.hpp"
+#include "RadioOverview.hpp"
 
 namespace cta::game::scene
 {
-    MissionOverview::MissionOverview() {        
+    RadioOverview::RadioOverview() {        
         _text = std::make_unique<cta::engine::Text>(
             std::make_pair(60, 150),
             std::make_tuple(0, 0, 0),
             18,
-            "MissionOverview",
+            "RadioOverview",
             "Resources/Font/OpenSans.ttf",
             cta::engine::textStyle::REGULAR
         );
     }
 
-    void MissionOverview::performScene() {
+    void RadioOverview::performScene() {
 
     }
 
-    void MissionOverview::drawScene(std::shared_ptr<cta::engine::Window> &window) {
+    void RadioOverview::drawScene(std::shared_ptr<cta::engine::Window> &window) {
         window->draw(_text->getText());
     }
 }

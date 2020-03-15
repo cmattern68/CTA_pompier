@@ -12,13 +12,19 @@ namespace cta::game
         _manager = std::make_unique<SceneryManager>();
         _call = nullptr;
         _isCallable = true;
+        _isPaused = false;
+        _settings = std::make_unique<cta::shared::Settings>();
 
     }
 
     void Game::catchEvent() {
         if (_event->getType() == cta::engine::Closed)
             _window->close();
-        if (!_isCallable && _call != nullptr) {
+        if (_navbar->onEvent(_window) && !_isPaused) {
+            _settings->setup();
+            _isPaused = true;
+        }
+        if (!_isCallable && _call != nullptr && !_isPaused) {
             std::string callReturn = _call->onEvent(_window);
             if (callReturn == "decline") {
                 delete(_call.release());
@@ -27,30 +33,39 @@ namespace cta::game
             } else if (callReturn == "answer") {
                 delete(_call.release());                
                 _call = nullptr;
-            }                
-        }            
+            }
+        }
+        if (_isPaused) {
+            _isPaused = _settings->onEvent(_window);
+        }
     }
 
     void Game::run() {
-        if (_isCallable)
-            dispatchUserCall();
+        if (!_isPaused) {
+            if (_isCallable) {                
+                dispatchUserCall();   
+            }                
+        } else {
+            _settings->show();
+        }
     }
 
     void Game::draw() {
         _navbar->draw(_window);
+        _manager->draw(_window);
         if (!_isCallable && _call != nullptr)
-            _call->draw(_window);        
+            _call->draw(_window);
+        if (_isPaused)
+            _settings->draw(_window);
     }
 
     void Game::switchScene(EScene newScene) {
         _manager->setSceneType(newScene);
     }
 
-    void Game::dispatchUserCall() {
-        int rd = rand() % 50;
-        std::cout << rd << std::endl;
+    void Game::dispatchUserCall() {                
         srand(time(NULL));        
-        if ((rd == 18)) {
+        if ((rand() % 30) == 18) {
             _call = std::make_unique<cta::shared::CallPopup>(_window);
             _isCallable = false;            
         }        

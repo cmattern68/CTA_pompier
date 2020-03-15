@@ -14,9 +14,9 @@ namespace cta {
         (void)ac;
         (void)av;        
         std::shared_ptr<cta::engine::Window> window = std::make_shared<cta::engine::Window>(std::make_pair(1920, 1080), "CTA Pompier");
-        std::shared_ptr<cta::engine::Event> event = std::make_unique<cta::engine::Event>();
-        std::unique_ptr<cta::game::Game> game = std::make_unique<cta::game::Game>(window, event);
-        
+        std::shared_ptr<cta::engine::Event> event = std::make_shared<cta::engine::Event>();
+        std::unique_ptr<cta::game::Game> game = std::make_unique<cta::game::Game>(window, event);        
+
         while (window->isOpen()) {
             while (window->pollEvent(event.get())) {                
                 game->catchEvent();

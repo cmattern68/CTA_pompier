@@ -19,6 +19,8 @@ namespace cta::engine::shape {
             std::pair<std::size_t, std::size_t> getSize() { return std::make_pair(_size.x, _size.y); };
             void setSize(std::pair<std::size_t, std::size_t>);
 
+            void setBorder(std::size_t, std::tuple<unsigned short int, unsigned short int, unsigned short int>);
+
             sf::RectangleShape getShape() { return _rectangleShape; };
         private:
             sf::Vector2f _size;

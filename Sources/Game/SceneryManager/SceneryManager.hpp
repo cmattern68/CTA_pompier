@@ -3,7 +3,9 @@
 
 #include "IScene.hpp"
 #include "MissionOverview.hpp"
-#include "Settings.hpp"
+#include "VehiclesOverview.hpp"
+#include "RadioOverview.hpp"
+#include "RectangleShape.hpp"
 
 namespace cta::game {    
 
@@ -15,10 +17,13 @@ namespace cta::game {
             SceneryManager &operator=(const SceneryManager &) = delete;
 
             EScene getSceneType() { return _sceneType; };
-            void setSceneType(const EScene &scene);
+            void setSceneType(const EScene &);
+
+            void draw(std::shared_ptr<cta::engine::Window> &);
         private:
             EScene _sceneType;
             std::unique_ptr<IScene> _scene;
+            std::unique_ptr<cta::engine::shape::RectangleShape> _background;
     };
 }
 
