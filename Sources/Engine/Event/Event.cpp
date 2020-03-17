@@ -9,12 +9,17 @@ namespace cta::engine {
         return std::make_pair(pos.x - windowPos.first, pos.y - 57);
     }
 
-    bool Event::mouseEvent(EEvent evt) {
-        return sf::Mouse::isButtonPressed((sf::Mouse::Button)evt);        
-    }
-
     bool Event::isMouseReleasedEvent(EEvent evt) {
         if (_event.type == sf::Event::MouseButtonReleased) {
+            if (_event.mouseButton.button == (sf::Mouse::Button)evt) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool Event::isMousePressedEvent(EEvent evt) {
+        if (_event.type == sf::Event::MouseButtonPressed) {
             if (_event.mouseButton.button == (sf::Mouse::Button)evt) {
                 return true;
             }

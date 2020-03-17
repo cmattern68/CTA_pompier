@@ -52,11 +52,13 @@ set(ENGINE_SRC
 set(SHARED_INC
     ./Sources/Game/Shared/CallPopup
     ./Sources/Game/Shared/Settings
+    ./Sources/Game/Shared/Settings/SoundManager
 )
 
 set(SHARED_SRC
     ./Sources/Game/Shared/CallPopup/CallPopup.cpp
     ./Sources/Game/Shared/Settings/Settings.cpp
+    ./Sources/Game/Shared/Settings/SoundManager/SoundManager.cpp
 )
 
 #

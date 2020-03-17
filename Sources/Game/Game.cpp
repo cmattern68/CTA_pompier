@@ -33,7 +33,8 @@ namespace cta::game
                 _call = nullptr;
             }
         }
-        if (_isPaused && _settings->isOpen()) {            
+        if (_isPaused && _settings->isOpen()) {
+            _settings->onEvent(_window, _event);
             _isPaused = !_settings->close(_window, _event);
         }
     }
@@ -41,9 +42,9 @@ namespace cta::game
     void Game::run() {
         if (!_isPaused) {
             if (_isCallable) {
-                dispatchUserCall();   
+                dispatchUserCall();
             }                
-        } else {            
+        } else if (!_settings->isOpen()) {
             _settings->open();
         }
     }
@@ -64,7 +65,7 @@ namespace cta::game
     void Game::dispatchUserCall() {                
         srand(time(NULL));        
         if ((rand() % 30) == 18) {
-            _call = std::make_unique<cta::shared::CallPopup>(_window);
+            _call = std::make_unique<cta::shared::CallPopup>(_window, _settings->getSound());
             _isCallable = false;            
         }        
     }

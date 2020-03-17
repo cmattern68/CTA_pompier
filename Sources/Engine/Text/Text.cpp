@@ -24,6 +24,10 @@ namespace cta::engine {
         _text.setStyle(_style);
     }
 
+    void Text::setText(std::string text) {
+        _text.setString(text);
+    }
+
     void Text::setPos(std::pair<std::size_t, std::size_t> pos) {
         _pos = pos;
         _text.setPosition({(float)_pos.first, (float)_pos.second});

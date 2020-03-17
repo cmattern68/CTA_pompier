@@ -14,7 +14,7 @@ namespace cta::shared {
     class CallPopup {
         public:
             ~CallPopup() = default;
-            CallPopup(std::shared_ptr<cta::engine::Window> &);
+            CallPopup(std::shared_ptr<cta::engine::Window> &, std::size_t);
             CallPopup(const CallPopup &) = delete;
             CallPopup &operator=(const CallPopup &) = delete;
             void draw(std::shared_ptr<cta::engine::Window> &);

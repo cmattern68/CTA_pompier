@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 namespace cta::shared {
-    CallPopup::CallPopup(std::shared_ptr<cta::engine::Window> &window) {        
+    CallPopup::CallPopup(std::shared_ptr<cta::engine::Window> &window, std::size_t sound) {        
         std::pair<std::size_t, std::size_t> windowSize = window->getSize();
         std::string entrance("Appel 18 Entrant");
         std::string nb("+33600000000");
@@ -17,7 +17,7 @@ namespace cta::shared {
         if ((rand() % 10) >= 8) {
             entrance = "Appel 112 Entrant";
             s1 = -6;
-        }            
+        }
         if ((rand() % 10) >= 8)
             nb = "+33" + std::to_string((rand() % (596000000 - 130000000 + 1)) + 130000000);
         else
@@ -59,7 +59,7 @@ namespace cta::shared {
                 std::make_pair(1, 1),
                 true
             );
-        _sound = std::make_unique<cta::engine::Sound>("Resources/Sound/ring.ogg");
+        _sound = std::make_unique<cta::engine::Sound>("Resources/Sound/ring.ogg", sound);
     }
 
     std::string CallPopup::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        
