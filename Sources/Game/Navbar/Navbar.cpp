@@ -23,8 +23,8 @@ namespace cta::game
         );
     }
 
-    bool Navbar::onEvent(std::shared_ptr<cta::engine::Window> &window) {        
-        if (_settingsBtn->isClicked(window))
+    bool Navbar::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        
+        if (_settingsBtn->isClicked(window, evt))
             return true;
         return false;
     }

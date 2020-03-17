@@ -4,27 +4,19 @@
 #include <tuple>
 
 namespace cta::engine {
-    
-    enum Type {        
-        RECTANGLE_SHAPE
-    };    
 
     class AShape {
 
         public:
             AShape() = default;            
             AShape(const AShape &) = delete;
-            ~AShape() = default;
-
-            void setType(unsigned short int type) { _type = type; };
-            unsigned short int getType() { return _type; };
+            ~AShape() = default;            
 
             std::pair<std::size_t, std::size_t> getPos() { return std::make_pair(_position.x, _position.y); };
 
         protected:
             unsigned short int _type;
-            sf::Vector2f _position;            
-            sf::RectangleShape _rectangleShape;
+            sf::Vector2f _position;
             std::tuple<unsigned short int, unsigned short int, unsigned short int> _color;
     };
 }

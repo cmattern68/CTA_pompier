@@ -21,11 +21,14 @@ set(ENGINE_INC
   ./Sources/Engine/Shape/
   ./Sources/Engine/Shape/RectangleShape/
   ./Sources/Engine/Shape/CircleShape/
+  ./Sources/Engine/Shape/RoundedRectangleShape/
+  ./Sources/Engine/Shape/RoundedRectangleShape/SfmlOverload/
   ./Sources/Engine/Texture/
   ./Sources/Engine/Text/
   ./Sources/Engine/Button/
   ./Sources/Engine/Button/SpriteButton
   ./Sources/Engine/Sound
+  ./Sources/Engine/Modal
 )
 
 set(ENGINE_SRC    
@@ -33,10 +36,13 @@ set(ENGINE_SRC
     ./Sources/Engine/Event/Event.cpp
     ./Sources/Engine/Shape/RectangleShape/RectangleShape.cpp
     ./Sources/Engine/Shape/CircleShape/CircleShape.cpp
+    ./Sources/Engine/Shape/RoundedRectangleShape/RoundedRectangleShape.cpp
+    ./Sources/Engine/Shape/RoundedRectangleShape/SfmlOverload/SfmlRoundedRectangleShape.cpp
     ./Sources/Engine/Texture/Texture.cpp
     ./Sources/Engine/Text/Text.cpp
     ./Sources/Engine/Button/SpriteButton/SpriteButton.cpp
     ./Sources/Engine/Sound/Sound.cpp
+    ./Sources/Engine/Modal/Modal.cpp
 )
 
 #
@@ -58,7 +64,6 @@ set(SHARED_SRC
 #
 
 set(GAME_INC
-    ./Sources/Main/
     ./Sources/Core/
     ./Sources/Game/
     ./Sources/Game/Navbar/

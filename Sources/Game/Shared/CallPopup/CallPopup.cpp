@@ -1,7 +1,6 @@
 #include "CallPopup.hpp"
 #include <time.h>
 #include <stdlib.h>
-#include <iostream>
 
 namespace cta::shared {
     CallPopup::CallPopup(std::shared_ptr<cta::engine::Window> &window) {        
@@ -14,7 +13,7 @@ namespace cta::shared {
             std::make_pair(windowSize.first - 212, windowSize.second - 262),
             std::make_pair(200, 250),
             std::make_tuple(61, 61, 61)
-        );        
+        );
         if ((rand() % 10) >= 8) {
             entrance = "Appel 112 Entrant";
             s1 = -6;
@@ -63,10 +62,10 @@ namespace cta::shared {
         _sound = std::make_unique<cta::engine::Sound>("Resources/Sound/ring.ogg");
     }
 
-    std::string CallPopup::onEvent(std::shared_ptr<cta::engine::Window> &window) {        
-        if (_aButton->isClicked(window))
+    std::string CallPopup::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        
+        if (_aButton->isClicked(window, evt))
             return "answer";
-        if (_dButton->isClicked(window))
+        if (_dButton->isClicked(window, evt))
             return "decline";        
         return "none";
     }

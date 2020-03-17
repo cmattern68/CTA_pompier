@@ -5,10 +5,11 @@ namespace cta::game
     SceneryManager::SceneryManager() {
         _sceneType = MISSION_OVERVIEW;
         _scene = std::make_unique<cta::game::scene::MissionOverview>();
-        _background = std::make_unique<cta::engine::shape::RectangleShape>(
+        _background = std::make_unique<cta::engine::shape::RoundedRectangleShape>(
             std::make_pair(50, 140),
             std::make_pair(1820, 790),
-            std::make_tuple(255, 255, 255)
+            std::make_tuple(255, 255, 255),
+            15.0
         );
         _background->setBorder(
             1,

@@ -1,7 +1,6 @@
 #include "Game.hpp"
 #include <time.h>
 #include <stdlib.h>
-#include <iostream>
 
 namespace cta::game
 {
@@ -20,33 +19,32 @@ namespace cta::game
     void Game::catchEvent() {
         if (_event->getType() == cta::engine::Closed)
             _window->close();
-        if (_navbar->onEvent(_window) && !_isPaused) {
-            _settings->setup();
+        if (_navbar->onEvent(_window, _event) && !_isPaused) {
             _isPaused = true;
         }
         if (!_isCallable && _call != nullptr && !_isPaused) {
-            std::string callReturn = _call->onEvent(_window);
+            std::string callReturn = _call->onEvent(_window, _event);            
             if (callReturn == "decline") {
                 delete(_call.release());
                 _isCallable = true;
-                _call = nullptr;
+                _call = nullptr;                
             } else if (callReturn == "answer") {
                 delete(_call.release());                
                 _call = nullptr;
             }
         }
-        if (_isPaused) {
-            _isPaused = _settings->onEvent(_window);
+        if (_isPaused && _settings->isOpen()) {            
+            _isPaused = !_settings->close(_window, _event);
         }
     }
 
     void Game::run() {
         if (!_isPaused) {
-            if (_isCallable) {                
+            if (_isCallable) {
                 dispatchUserCall();   
             }                
-        } else {
-            _settings->show();
+        } else {            
+            _settings->open();
         }
     }
 

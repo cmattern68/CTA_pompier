@@ -5,7 +5,7 @@
 #include "MissionOverview.hpp"
 #include "VehiclesOverview.hpp"
 #include "RadioOverview.hpp"
-#include "RectangleShape.hpp"
+#include "RoundedRectangleShape.hpp"
 
 namespace cta::game {    
 
@@ -23,7 +23,7 @@ namespace cta::game {
         private:
             EScene _sceneType;
             std::unique_ptr<IScene> _scene;
-            std::unique_ptr<cta::engine::shape::RectangleShape> _background;
+            std::unique_ptr<cta::engine::shape::RoundedRectangleShape> _background;
     };
 }
 

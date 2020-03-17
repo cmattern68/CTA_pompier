@@ -4,8 +4,7 @@ namespace cta::engine::shape {
 
     CircleShape::CircleShape(std::pair<std::size_t, std::size_t> pos, 
                                    float radius,
-                                   std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {
-        _type = RECTANGLE_SHAPE;
+                                   std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {        
         _position = {(float)pos.first, (float)pos.second};
         _size = radius;
         _color = color;

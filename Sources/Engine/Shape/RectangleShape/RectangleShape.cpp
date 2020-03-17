@@ -4,8 +4,7 @@ namespace cta::engine::shape {
 
     RectangleShape::RectangleShape(std::pair<std::size_t, std::size_t> pos, 
                                    std::pair<std::size_t, std::size_t> size,
-                                   std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {
-        _type = RECTANGLE_SHAPE;
+                                   std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {        
         _position = {(float)pos.first, (float)pos.second};
         _size = {(float)size.first, (float)size.second};
         _color = color;

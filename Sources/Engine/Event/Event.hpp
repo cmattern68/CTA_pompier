@@ -21,6 +21,7 @@ namespace cta::engine {
             std::size_t getType() { return _event.type; }
             static std::pair<std::size_t, std::size_t> getMousePosition(std::pair<std::size_t, std::size_t>);
             static bool mouseEvent(EEvent);
+            bool isMouseReleasedEvent(EEvent);
                 
         private:
             sf::Event _event;            

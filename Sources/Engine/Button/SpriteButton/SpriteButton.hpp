@@ -20,7 +20,7 @@ namespace cta::engine::button {
 
             /* Callback function */            
             bool isHovered(std::pair<std::size_t, std::size_t>) override final;
-            bool isClicked(std::shared_ptr<cta::engine::Window> &) override final;
+            bool isClicked(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &) override final;
             bool isClickable() override final { return _isClickable; };
         private:
             bool _isClickable;

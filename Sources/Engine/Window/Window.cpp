@@ -1,5 +1,4 @@
 #include "Window.hpp"
-#include <iostream>
 
 namespace cta::engine {
     Window::Window(std::pair<std::size_t, std::size_t> size, std::string name) {

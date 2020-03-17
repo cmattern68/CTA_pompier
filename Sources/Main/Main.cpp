@@ -1,6 +1,6 @@
 #include <string>
-#include <iostream>
 #include <memory>
+#include <iostream>
 #include "Core.hpp"
 
 int main(int ac, char **av, char const *const *env)

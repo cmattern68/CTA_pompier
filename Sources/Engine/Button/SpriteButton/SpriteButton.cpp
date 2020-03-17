@@ -1,5 +1,4 @@
 #include "SpriteButton.hpp"
-#include <iostream>
 
 namespace cta::engine::button {
     SpriteButton::SpriteButton(
@@ -34,8 +33,8 @@ namespace cta::engine::button {
         return false;
     }
 
-    bool SpriteButton::isClicked(std::shared_ptr<cta::engine::Window> &window) {
-        if (cta::engine::Event::mouseEvent(cta::engine::EEvent::LeftClick))
+    bool SpriteButton::isClicked(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {
+        if (evt->isMouseReleasedEvent(cta::engine::LeftClick))
             if (isHovered(cta::engine::Event::getMousePosition(window->getPosition())))
                 return true;
         return false;

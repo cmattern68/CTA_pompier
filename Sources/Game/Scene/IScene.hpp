@@ -3,7 +3,6 @@
 
 #include "Window.hpp"
 #include "Text.hpp"
-#include <iostream>
 
 namespace cta::game {
 
