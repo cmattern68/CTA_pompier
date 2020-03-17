@@ -3,13 +3,12 @@
 #include <iostream>
 #include "Core.hpp"
 
-int main(int ac, char **av, char const *const *env)
-{
-    (void)env;
-    std::unique_ptr<cta::Core> core = nullptr;
+int main(const int ac, const char * const *av, char const *const *env)
+{    
+    std::unique_ptr<cta::Core> core = nullptr;    
     try {
         core = std::make_unique<cta::Core>();
-        core->run(ac, av);
+        core->run(ac, av, env);
     } catch (std::exception const &error) {
         std::cerr << "Error :: Standard exception :: " << error.what() << std::endl;
         return 125;

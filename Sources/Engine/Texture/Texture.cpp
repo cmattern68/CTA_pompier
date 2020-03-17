@@ -1,4 +1,5 @@
 #include "Texture.hpp"
+#include "Errors.hpp"
 
 namespace cta::engine {
 
@@ -6,7 +7,8 @@ namespace cta::engine {
                     std::pair<std::size_t, std::size_t> pos,
                     Rect rect,
                     std::pair<float, float> scale) {
-        _texture.loadFromFile(path);
+        if (!_texture.loadFromFile(path))
+            throw RuntimeError {"Unable to load sprite: '" + path + "'."};
         _sprite.setTexture(_texture);
         _pos = pos;
         _rect = {rect.rectLeft, rect.rectTop, rect.rectWidth, rect.rectHeight};

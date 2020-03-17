@@ -8,7 +8,7 @@ namespace cta {
             Core() noexcept;
             Core(const Core &) = delete;
             Core &operator=(const Core &) = delete;
-            void run(int, char **);
+            void run(const int, const char * const *, const char * const*);
     };
 }
 

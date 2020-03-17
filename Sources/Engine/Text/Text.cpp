@@ -1,4 +1,5 @@
 #include "Text.hpp"
+#include "Errors.hpp"
 
 namespace cta::engine {
     Text::Text(
@@ -13,7 +14,8 @@ namespace cta::engine {
         _color = color;
         _size = size;
         _content = text;
-        _font.loadFromFile(fontPath);
+        if (!_font.loadFromFile(fontPath))
+            throw RuntimeError {"Unable to load font: '" + fontPath + "'."};
         _style = style;
 
         _text.setPosition({(float)_pos.first, (float)_pos.second});
