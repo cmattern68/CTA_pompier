@@ -82,6 +82,7 @@ set(GAME_INC
     ./Sources/Core/
     ./Sources/Game/
     ./Sources/Game/Navbar/
+    ./Sources/Game/Navbar/MissionBoard/
     ./Sources/Game/SceneryManager/
     ./Sources/Game/Scene/
     ./Sources/Game/Scene/MissionOverview/
@@ -94,6 +95,7 @@ set(GAME_SRC
     ./Sources/Core/Core.cpp 
     ./Sources/Game/Game.cpp
     ./Sources/Game/Navbar/Navbar.cpp
+    ./Sources/Game/Navbar/MissionBoard/MissionBoard.cpp
     ./Sources/Game/SceneryManager/SceneryManager.cpp
     ./Sources/Game/Scene/AScene.cpp
     ./Sources/Game/Scene/MissionOverview/MissionOverview.cpp    

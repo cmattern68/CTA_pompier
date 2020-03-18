@@ -1,10 +1,8 @@
 #ifndef NAVBAR_HPP_
 #define NAVBAR_HPP_
 
-#include <memory>
-#include "RectangleShape.hpp"
+#include "MissionBoard.hpp"
 #include "Texture.hpp"
-#include "Window.hpp"
 #include "SpriteButton.hpp"
 
 namespace cta::game {
@@ -21,6 +19,7 @@ namespace cta::game {
             std::unique_ptr<cta::engine::shape::RectangleShape> _background;
             std::unique_ptr<cta::engine::Texture> _icon;
             std::unique_ptr<cta::engine::IButton> _settingsBtn;
+            std::unique_ptr<cta::game::navbar::MissionBoard> _board;
     };
 }
 

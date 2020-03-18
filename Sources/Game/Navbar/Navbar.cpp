@@ -21,6 +21,7 @@ namespace cta::game
                 std::make_pair(1, 1),
                 true
         );
+        _board = std::make_unique<cta::game::navbar::MissionBoard>();
     }
 
     bool Navbar::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        
@@ -30,8 +31,9 @@ namespace cta::game
     }
 
     void Navbar::draw(std::shared_ptr<cta::engine::Window> &window) {
+        _board->draw(window);
         window->draw(_background->getShape());
         window->draw(_icon->getSprite());
-        _settingsBtn->draw(window);
+        _settingsBtn->draw(window);        
     }
 }
