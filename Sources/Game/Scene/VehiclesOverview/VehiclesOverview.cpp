@@ -4,7 +4,7 @@ namespace cta::game::scene
 {
     VehiclesOverview::VehiclesOverview() {        
         _text = std::make_unique<cta::engine::Text>(
-            std::make_pair(60, 150),
+            std::make_pair(60, 200),
             std::make_tuple(0, 0, 0),
             18,
             "VehiclesOverview",

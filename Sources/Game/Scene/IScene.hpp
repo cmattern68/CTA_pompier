@@ -9,7 +9,8 @@ namespace cta::game {
     enum EScene {
         MISSION_OVERVIEW,
         VEHICLES_OVERVIEW,
-        RADIO_OVERVIEW,        
+        RADIO_OVERVIEW,
+        NONE,
     };
 
     class IScene {

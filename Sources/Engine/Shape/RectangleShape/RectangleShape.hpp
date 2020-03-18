@@ -10,7 +10,8 @@ namespace cta::engine::shape {
 
         public:
             RectangleShape();
-            RectangleShape(std::pair<std::size_t, std::size_t> , std::pair<std::size_t, std::size_t>, std::tuple<unsigned short int, unsigned short int, unsigned short int>);
+            RectangleShape(std::pair<std::size_t, std::size_t> , std::pair<std::size_t, std::size_t>);
+            RectangleShape(std::pair<std::size_t, std::size_t> , std::pair<std::size_t, std::size_t>, std::tuple<unsigned short int, unsigned short int, unsigned short int>);            
             RectangleShape(const AShape &) = delete;
             ~RectangleShape() = default;
 
@@ -20,6 +21,7 @@ namespace cta::engine::shape {
             void setSize(std::pair<std::size_t, std::size_t>);
 
             void setBorder(std::size_t, std::tuple<unsigned short int, unsigned short int, unsigned short int>);
+            void setBackground(std::tuple<unsigned short int, unsigned short int, unsigned short int>);
 
             sf::RectangleShape getShape() { return _rectangleShape; };
         private:

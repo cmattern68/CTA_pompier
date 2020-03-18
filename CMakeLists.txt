@@ -40,6 +40,7 @@ set(ENGINE_INC
   ./Sources/Engine/Text/
   ./Sources/Engine/Button/
   ./Sources/Engine/Button/SpriteButton/
+  ./Sources/Engine/Button/RectangleShapeButton/
   ./Sources/Engine/Sound/
   ./Sources/Engine/Modal/
 )
@@ -54,6 +55,7 @@ set(ENGINE_SRC
     ./Sources/Engine/Texture/Texture.cpp
     ./Sources/Engine/Text/Text.cpp
     ./Sources/Engine/Button/SpriteButton/SpriteButton.cpp
+    ./Sources/Engine/Button/RectangleShapeButton/RectangleShapeButton.cpp
     ./Sources/Engine/Sound/Sound.cpp
     ./Sources/Engine/Modal/Modal.cpp
 )
@@ -84,6 +86,7 @@ set(GAME_INC
     ./Sources/Game/Navbar/
     ./Sources/Game/Navbar/MissionBoard/
     ./Sources/Game/SceneryManager/
+    ./Sources/Game/SceneryManager/Menu/
     ./Sources/Game/Scene/
     ./Sources/Game/Scene/MissionOverview/
     ./Sources/Game/Scene/VehiclesOverview/
@@ -97,6 +100,7 @@ set(GAME_SRC
     ./Sources/Game/Navbar/Navbar.cpp
     ./Sources/Game/Navbar/MissionBoard/MissionBoard.cpp
     ./Sources/Game/SceneryManager/SceneryManager.cpp
+    ./Sources/Game/SceneryManager/Menu/Menu.cpp
     ./Sources/Game/Scene/AScene.cpp
     ./Sources/Game/Scene/MissionOverview/MissionOverview.cpp    
     ./Sources/Game/Scene/VehiclesOverview/VehiclesOverview.cpp

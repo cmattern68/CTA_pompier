@@ -6,6 +6,8 @@
 #include "VehiclesOverview.hpp"
 #include "RadioOverview.hpp"
 #include "RoundedRectangleShape.hpp"
+#include "Menu.hpp"
+
 
 namespace cta::game {    
 
@@ -19,11 +21,14 @@ namespace cta::game {
             EScene getSceneType() { return _sceneType; };
             void setSceneType(const EScene &);
 
+            void onEvent(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &);
+
             void draw(std::shared_ptr<cta::engine::Window> &);
         private:
             EScene _sceneType;
             std::unique_ptr<IScene> _scene;
             std::unique_ptr<cta::engine::shape::RoundedRectangleShape> _background;
+            std::unique_ptr<cta::game::scenerymanager::Menu> _menu;
     };
 }
 

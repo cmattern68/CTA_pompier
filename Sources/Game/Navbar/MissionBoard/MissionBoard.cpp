@@ -22,7 +22,7 @@ namespace cta::game::navbar
                 std::make_pair(650, 65),
                 std::make_tuple(255, 255, 255),
                 20,
-                "Intervention en cours: 0",
+                "Interventions en cours: 0",
                 "Resources/Font/OpenSans.ttf",
                 cta::engine::textStyle::BOLD
             ),
@@ -30,7 +30,7 @@ namespace cta::game::navbar
                 std::make_pair(969, 65),
                 std::make_tuple(255, 255, 255),
                 20,
-                "Vehicules en interventin: 0",
+                "Vehicules en intervention: 0",
                 "Resources/Font/OpenSans.ttf",
                 cta::engine::textStyle::BOLD
             )
@@ -38,11 +38,11 @@ namespace cta::game::navbar
     }
 
     void MissionBoard::setMissionNb(std::size_t nb) {
-        (_text.first)->setText("Intervention en cours: " + std::to_string(nb));
+        (_text.first)->setText("Interventions en cours: " + std::to_string(nb));
     }
 
     void MissionBoard::setInMissionVehiclesNb(std::size_t nb) {
-        (_text.second)->setText("Vehicules en interventin: " + std::to_string(nb));
+        (_text.second)->setText("Vehicules en intervention: " + std::to_string(nb));
     }
 
     void MissionBoard::draw(std::shared_ptr<cta::engine::Window> &window) {

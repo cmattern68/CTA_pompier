@@ -15,6 +15,7 @@ namespace cta::game
             1,
             std::make_tuple(0, 0, 0)
         );
+        _menu = std::make_unique<cta::game::scenerymanager::Menu>();
     }
 
     void SceneryManager::setSceneType(const EScene &scene) {
@@ -35,8 +36,15 @@ namespace cta::game
         }
     }
 
+    void SceneryManager::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        
+        EScene newScene = _menu->onEvent(window, evt);
+        if (newScene != NONE)
+            setSceneType(newScene);
+    }
+
     void SceneryManager::draw(std::shared_ptr<cta::engine::Window> &window) {
         window->draw(_background->getShape());
+        _menu->draw(window);
         _scene->drawScene(window);
     }
 }

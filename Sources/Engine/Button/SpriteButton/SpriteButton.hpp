@@ -13,6 +13,8 @@ namespace cta::engine::button {
             SpriteButton(const SpriteButton &) = delete;
             SpriteButton &operator=(const SpriteButton &) = delete;
 
+            void setBackground(std::tuple<unsigned short int, unsigned short int, unsigned short int>) {};
+            void setBorder(std::size_t, std::tuple<unsigned short int, unsigned short int, unsigned short int>) override final {};
             void setPos(std::pair<std::size_t, std::size_t>) override final;
             std::pair<std::size_t, std::size_t> getPos() override final { return _pos; };
 

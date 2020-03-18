@@ -36,9 +36,10 @@ namespace cta::game
         if (_isPaused && _settings->isOpen()) {
             _settings->onEvent(_window, _event);
             _isPaused = !_settings->close(_window, _event);
-            if (!_isPaused)
+            if (!_isPaused && _call != nullptr)
                 _call->play();
         }
+        _manager->onEvent(_window, _event);
     }
 
     void Game::run() {
@@ -47,7 +48,8 @@ namespace cta::game
                 dispatchUserCall();
             }                
         } else if (!_settings->isOpen()) {
-            _call->pause();
+            if (_call != nullptr)
+                _call->pause();
             _settings->open();
         }
     }

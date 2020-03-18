@@ -3,6 +3,15 @@
 namespace cta::engine::shape {
 
     RectangleShape::RectangleShape(std::pair<std::size_t, std::size_t> pos, 
+                                   std::pair<std::size_t, std::size_t> size) {
+        _position = {(float)pos.first, (float)pos.second};
+        _size = {(float)size.first, (float)size.second};        
+        sf::RectangleShape rectangle(_size);
+        _rectangleShape = rectangle;
+        _rectangleShape.setPosition(_position);        
+    }
+
+    RectangleShape::RectangleShape(std::pair<std::size_t, std::size_t> pos, 
                                    std::pair<std::size_t, std::size_t> size,
                                    std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {        
         _position = {(float)pos.first, (float)pos.second};
@@ -27,5 +36,10 @@ namespace cta::engine::shape {
     void RectangleShape::setBorder(std::size_t size, std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {
         _rectangleShape.setOutlineThickness(size);
         _rectangleShape.setOutlineColor(sf::Color(std::get<0>(color), std::get<1>(color), std::get<2>(color)));
+    }
+
+    void RectangleShape::setBackground(std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {
+        _rectangleShape.setFillColor(sf::Color(std::get<0>(color), std::get<1>(color), std::get<2>(color)));
+        _color = color;
     }
 }
