@@ -19,6 +19,9 @@ namespace cta::shared {
             CallPopup &operator=(const CallPopup &) = delete;
             void draw(std::shared_ptr<cta::engine::Window> &);
             std::string onEvent(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &);
+
+            void pause() { _sound->pause(); };
+            void play() { _sound->play(); };
         private:
             std::unique_ptr<cta::engine::shape::RectangleShape> _background;
             std::vector<std::unique_ptr<cta::engine::Text>> _text;
