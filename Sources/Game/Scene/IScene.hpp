@@ -10,7 +10,14 @@ namespace cta::game {
         MISSION_OVERVIEW,
         VEHICLES_OVERVIEW,
         RADIO_OVERVIEW,
+        CREATE_MISSION,
         NONE,
+    };
+
+    enum EReturn {
+        CLOSE,
+        SUBMIT,
+        NO,
     };
 
     class IScene {
@@ -18,6 +25,7 @@ namespace cta::game {
             IScene(){}
             ~IScene() {};
 
+            virtual EReturn onEvent(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &) = 0;
             virtual void performScene() = 0;
             virtual void drawScene(std::shared_ptr<cta::engine::Window> &) = 0;
         protected:

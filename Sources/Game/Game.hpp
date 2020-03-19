@@ -17,10 +17,11 @@ namespace cta::game {
 
             void catchEvent();
             void run();
-            void draw();
-            void switchScene(EScene);
+            void draw();            
         private:
             void dispatchUserCall();
+            void callAnswer();
+            bool isOnCall();
 
             std::shared_ptr<cta::engine::Window> _window;
             std::shared_ptr<cta::engine::Event> _event;

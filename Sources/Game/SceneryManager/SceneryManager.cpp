@@ -7,7 +7,7 @@ namespace cta::game
         _scene = std::make_unique<cta::game::scene::MissionOverview>();
         _background = std::make_unique<cta::engine::shape::RoundedRectangleShape>(
             std::make_pair(50, 140),
-            std::make_pair(1820, 790),
+            std::make_pair(1820, 760),
             std::make_tuple(255, 255, 255),
             15.0
         );
@@ -31,20 +31,43 @@ namespace cta::game
         case RADIO_OVERVIEW:
             _scene = std::make_unique<cta::game::scene::RadioOverview>();
             break;
+        case CREATE_MISSION:
+            _scene = std::make_unique<cta::game::scene::CreateMission>();
+            break;
         default:
             break;
         }
     }
 
-    void SceneryManager::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        
-        EScene newScene = _menu->onEvent(window, evt);
-        if (newScene != NONE)
-            setSceneType(newScene);
+    bool SceneryManager::addEntry(const EScene &scene, const std::string &name) {
+        return _menu->insert(scene, name);
+    }    
+
+    bool SceneryManager::hasEntry(const EScene &scene) {
+        if (scene == _sceneType)
+            return true;
+        return false;
     }
 
-    void SceneryManager::draw(std::shared_ptr<cta::engine::Window> &window) {
-        window->draw(_background->getShape());
-        _menu->draw(window);
+    bool SceneryManager::removeEntry(const EScene &scene) {
+        if (_menu->remove(scene)) {
+            setSceneType(MISSION_OVERVIEW);
+        }
+        return false;
+    }
+
+    void SceneryManager::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        
+        EScene newScene = _menu->onEvent(window, evt);
+        if (newScene != cta::game::EScene::NONE)
+            setSceneType(newScene);
+        EReturn onEvent = _scene->onEvent(window, evt);
+        if (onEvent == EReturn::CLOSE || onEvent == EReturn::SUBMIT)
+            removeEntry(_sceneType);
+    }
+
+    void SceneryManager::draw(std::shared_ptr<cta::engine::Window> &window) {        
+        window->draw(_background->getShape());        
+        _menu->draw(window, _sceneType);
         _scene->drawScene(window);
     }
 }

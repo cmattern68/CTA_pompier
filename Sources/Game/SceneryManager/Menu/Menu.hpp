@@ -16,8 +16,11 @@ namespace cta::game::scenerymanager {
 
             cta::game::EScene onEvent(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &);
 
+            bool insert(const cta::game::EScene &, const std::string &);
+            bool remove(const cta::game::EScene &);            
+
             void setTime();
-            void draw(std::shared_ptr<cta::engine::Window> &);
+            void draw(std::shared_ptr<cta::engine::Window> &, const EScene &);
         private:            
             std::unique_ptr<cta::engine::shape::RectangleShape> _hr;
             std::unordered_map<cta::game::EScene, std::unique_ptr<cta::engine::IButton>> _button;

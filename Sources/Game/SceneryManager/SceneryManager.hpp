@@ -5,6 +5,7 @@
 #include "MissionOverview.hpp"
 #include "VehiclesOverview.hpp"
 #include "RadioOverview.hpp"
+#include "CreateMission.hpp"
 #include "RoundedRectangleShape.hpp"
 #include "Menu.hpp"
 
@@ -21,8 +22,11 @@ namespace cta::game {
             EScene getSceneType() { return _sceneType; };
             void setSceneType(const EScene &);
 
-            void onEvent(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &);
+            bool addEntry(const EScene &, const std::string &);
+            bool hasEntry(const EScene &);
+            bool removeEntry(const EScene &);            
 
+            void onEvent(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &);
             void draw(std::shared_ptr<cta::engine::Window> &);
         private:
             EScene _sceneType;

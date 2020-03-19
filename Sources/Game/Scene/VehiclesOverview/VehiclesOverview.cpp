@@ -17,6 +17,12 @@ namespace cta::game::scene
 
     }
 
+    EReturn VehiclesOverview::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {
+        (void)window;
+        (void)evt;
+        return EReturn::NO;
+    }
+
     void VehiclesOverview::drawScene(std::shared_ptr<cta::engine::Window> &window) {
         window->draw(_text->getText());
     }

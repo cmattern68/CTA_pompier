@@ -15,6 +15,11 @@ namespace cta::engine::shape {
         _shape.setFillColor(sf::Color(std::get<0>(_color), std::get<1>(_color), std::get<2>(_color)));
     }
 
+    void RoundedRectangleShape::setBackground(std::tuple<unsigned short int, unsigned short int, unsigned short int> color) {
+        _color = color;
+        _shape.setFillColor(sf::Color(std::get<0>(_color), std::get<1>(_color), std::get<2>(_color)));
+    }
+
     void RoundedRectangleShape::setPos(std::pair<std::size_t, std::size_t> pos) {
         _position = { (float)pos.first, (float)pos.second };
         _shape.setPosition(_position);

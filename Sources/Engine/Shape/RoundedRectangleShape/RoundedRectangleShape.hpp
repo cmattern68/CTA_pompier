@@ -15,6 +15,7 @@ namespace cta::engine::shape {
 
             void setPos(std::pair<std::size_t, std::size_t>);
 
+            void setBackground(std::tuple<unsigned short int, unsigned short int, unsigned short int>);
             std::pair<std::size_t, std::size_t> getSize() { return std::make_pair(_size.x, _size.y); };
             void setSize(std::pair<std::size_t, std::size_t>);
 

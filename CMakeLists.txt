@@ -41,6 +41,7 @@ set(ENGINE_INC
   ./Sources/Engine/Button/
   ./Sources/Engine/Button/SpriteButton/
   ./Sources/Engine/Button/RectangleShapeButton/
+  ./Sources/Engine/Button/RoundedRectangleShapeButton/
   ./Sources/Engine/Sound/
   ./Sources/Engine/Modal/
 )
@@ -56,6 +57,7 @@ set(ENGINE_SRC
     ./Sources/Engine/Text/Text.cpp
     ./Sources/Engine/Button/SpriteButton/SpriteButton.cpp
     ./Sources/Engine/Button/RectangleShapeButton/RectangleShapeButton.cpp
+    ./Sources/Engine/Button/RoundedRectangleShapeButton/RoundedRectangleShapeButton.cpp
     ./Sources/Engine/Sound/Sound.cpp
     ./Sources/Engine/Modal/Modal.cpp
 )
@@ -91,6 +93,7 @@ set(GAME_INC
     ./Sources/Game/Scene/MissionOverview/
     ./Sources/Game/Scene/VehiclesOverview/
     ./Sources/Game/Scene/RadioOverview/
+    ./Sources/Game/Scene/CreateMission/
 )
 
 set(GAME_SRC
@@ -105,6 +108,7 @@ set(GAME_SRC
     ./Sources/Game/Scene/MissionOverview/MissionOverview.cpp    
     ./Sources/Game/Scene/VehiclesOverview/VehiclesOverview.cpp
     ./Sources/Game/Scene/RadioOverview/RadioOverview.cpp
+    ./Sources/Game/Scene/CreateMission/CreateMission.cpp
 )
 
 add_executable(CTA_Pompier ${ERRORS_SRC} ${ENGINE_SRC} ${SHARED_SRC} ${GAME_SRC})

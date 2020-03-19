@@ -29,6 +29,7 @@ namespace cta::game
                 _isCallable = true;
                 _call = nullptr;                
             } else if (callReturn == "answer") {
+                callAnswer();
                 delete(_call.release());                
                 _call = nullptr;
             }
@@ -51,7 +52,11 @@ namespace cta::game
             if (_call != nullptr)
                 _call->pause();
             _settings->open();
-        }
+        }        
+        if (isOnCall())
+            _isCallable = false;
+        else
+            _isCallable = true;
     }
 
     void Game::draw() {
@@ -63,15 +68,24 @@ namespace cta::game
             _settings->draw(_window);
     }
 
-    void Game::switchScene(EScene newScene) {
-        _manager->setSceneType(newScene);
-    }
-
     void Game::dispatchUserCall() {                
         srand(time(NULL));        
-        if ((rand() % 30) == 18) {
+        if (18 == 18) {
+        //if ((rand() % 30) == 18) {
             _call = std::make_unique<cta::shared::CallPopup>(_window, _settings->getSound());
-            _isCallable = false;            
+            _isCallable = false;
         }        
+    }
+
+    void Game::callAnswer() {
+        bool success = _manager->addEntry(cta::game::CREATE_MISSION, "Nouvelle Intervention *");
+        if (success)
+            _manager->setSceneType(cta::game::CREATE_MISSION);        
+    }
+
+    bool Game::isOnCall() {        
+        if (_manager->hasEntry(cta::game::CREATE_MISSION) || _call != nullptr)
+            return true;
+        return false;
     }
 }

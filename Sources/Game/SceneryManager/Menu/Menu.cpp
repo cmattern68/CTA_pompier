@@ -61,7 +61,34 @@ namespace cta::game::scenerymanager
         for (auto const &button : _button)
             if ((button.second)->isClicked(window, evt))
                 return button.first;                    
-        return cta::game::NONE;
+        return cta::game::EScene::NONE;
+    }
+
+    bool Menu::insert(const cta::game::EScene &scene, const std::string &name) {
+        if (_button.find(scene) == _button.end()) {
+            _button.insert(
+                std::make_pair(
+                    scene,
+                    std::make_unique<cta::engine::button::RectangleShapeButton>(
+                        std::make_pair(690, 140),
+                        std::make_pair(220, 40),
+                        name,
+                        true
+                    )
+                )            
+            );
+            _button[scene]->setBorder(1, {0, 0, 0});
+            return true;
+        }
+        return false;
+    }
+
+    bool Menu::remove(const cta::game::EScene &scene) {
+        if (_button.find(scene) != _button.end()) {
+            _button.erase(scene);
+            return true;
+        }
+        return false;
     }
 
     void Menu::setTime() {
@@ -71,9 +98,11 @@ namespace cta::game::scenerymanager
             _timeText->setText(_time);
     }
 
-    void Menu::draw(std::shared_ptr<cta::engine::Window> &window) {        
+    void Menu::draw(std::shared_ptr<cta::engine::Window> &window, const EScene &scene) {        
         for (auto const &button : _button) {
             if ((button.second)->isHovered(cta::engine::Event::getMousePosition(window->getPosition())) && (button.second)->isClickable()) {
+                (button).second->setBackground(std::make_tuple(236, 240, 241));
+            } else if (button.first == scene) {
                 (button).second->setBackground(std::make_tuple(236, 240, 241));
             } else {
                 (button).second->setBackground(std::make_tuple(255, 255, 255));
