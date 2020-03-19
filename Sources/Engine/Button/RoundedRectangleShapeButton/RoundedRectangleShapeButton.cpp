@@ -17,7 +17,7 @@ namespace cta::engine::button {
             _pos,
             _size,
             _color,
-            20.0
+            5.0
         );        
         _text = std::make_unique<cta::engine::Text>(
             std::make_pair(_pos.first + 10, _pos.second + 8),

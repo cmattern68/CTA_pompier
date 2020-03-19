@@ -6,7 +6,7 @@ namespace cta::game
         _background = std::make_unique<cta::engine::shape::RectangleShape>(
             std::make_pair(0, 0),
             std::make_pair(1920, 60),
-            std::make_tuple(188, 21, 28)
+            std::make_tuple(117, 21, 30)
         );
         _icon = std::make_unique<cta::engine::Texture>(
             "Resources/Icon/icon.png",
@@ -22,6 +22,10 @@ namespace cta::game
                 true
         );
         _board = std::make_unique<cta::game::navbar::MissionBoard>();
+    }
+
+    void Navbar::updateMission(const std::size_t &nb) {
+        _board->setMissionNb(nb);
     }
 
     bool Navbar::onEvent(std::shared_ptr<cta::engine::Window> &window, std::shared_ptr<cta::engine::Event> &evt) {        

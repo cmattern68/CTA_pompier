@@ -3,6 +3,7 @@
 
 #include "Modal.hpp"
 #include "SoundManager.hpp"
+#include "RoundedRectangleShapeButton.hpp"
 
 namespace cta::shared {
     class Settings {
@@ -23,6 +24,7 @@ namespace cta::shared {
             bool _isOpen;
             std::unique_ptr<cta::engine::Modal> _modal;
             std::unique_ptr<cta::shared::settings::SoundManager> _soundManager;
+            std::unique_ptr<cta::engine::IButton> _leave;
             std::pair<std::size_t, std::size_t> _minPos;
 
             std::size_t _sound;            

@@ -59,7 +59,7 @@ set(ENGINE_SRC
     ./Sources/Engine/Button/RectangleShapeButton/RectangleShapeButton.cpp
     ./Sources/Engine/Button/RoundedRectangleShapeButton/RoundedRectangleShapeButton.cpp
     ./Sources/Engine/Sound/Sound.cpp
-    ./Sources/Engine/Modal/Modal.cpp
+    ./Sources/Engine/Modal/Modal.cpp    
 )
 
 #
@@ -70,12 +70,14 @@ set(SHARED_INC
     ./Sources/Game/Shared/CallPopup/
     ./Sources/Game/Shared/Settings/
     ./Sources/Game/Shared/Settings/SoundManager/
+    ./Sources/Game/Shared/MissionManager/
 )
 
 set(SHARED_SRC
     ./Sources/Game/Shared/CallPopup/CallPopup.cpp
     ./Sources/Game/Shared/Settings/Settings.cpp
     ./Sources/Game/Shared/Settings/SoundManager/SoundManager.cpp
+    ./Sources/Game/Shared/MissionManager/MissionManager.cpp
 )
 
 #

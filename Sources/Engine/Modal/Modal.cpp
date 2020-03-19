@@ -10,7 +10,7 @@ namespace cta::engine
         std::tuple<unsigned short int, unsigned short int, unsigned short int> borderColor,
         std::size_t borderSize
     ) {        
-        _bg = std::make_unique<cta::engine::shape::RoundedRectangleShape>(pos, size, bgColor, 30.0);
+        _bg = std::make_unique<cta::engine::shape::RoundedRectangleShape>(pos, size, bgColor, 10.0);
         _bg->setBorder(borderSize, borderColor);
         _name = std::make_unique<cta::engine::Text>(
             std::make_pair(pos.first + 20, pos.second + 4),

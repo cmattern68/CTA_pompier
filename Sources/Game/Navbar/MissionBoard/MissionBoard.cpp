@@ -7,12 +7,12 @@ namespace cta::game::navbar
             std::make_unique<cta::engine::shape::RectangleShape>(
                 std::make_pair(640, 59),
                 std::make_pair(320, 40),
-                std::make_tuple(188, 21, 28)
+                std::make_tuple(30, 39, 56)
             ),
             std::make_unique<cta::engine::shape::RectangleShape>(
                 std::make_pair(959, 59),
                 std::make_pair(320, 40),
-                std::make_tuple(188, 21, 28)
+                std::make_tuple(30, 39, 56)
             )
         );
         (_bg.first)->setBorder(1, std::make_tuple(0, 0, 0));

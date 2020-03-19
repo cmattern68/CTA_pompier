@@ -21,8 +21,7 @@ namespace cta::game::scenerymanager {
 
             void setTime();
             void draw(std::shared_ptr<cta::engine::Window> &, const EScene &);
-        private:            
-            std::unique_ptr<cta::engine::shape::RectangleShape> _hr;
+        private:
             std::unordered_map<cta::game::EScene, std::unique_ptr<cta::engine::IButton>> _button;
             std::string _time;
             std::unique_ptr<cta::engine::Text> _timeText;

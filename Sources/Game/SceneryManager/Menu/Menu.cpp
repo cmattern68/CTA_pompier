@@ -4,52 +4,47 @@
 namespace cta::game::scenerymanager
 {
     Menu::Menu() {
-        _hr = std::make_unique<cta::engine::shape::RectangleShape>(
-            std::make_pair(50, 180),
-            std::make_pair(1820, 1),
-            std::make_tuple(0, 0, 0)
-        );
         _button.insert(
             std::make_pair(
                 cta::game::MISSION_OVERVIEW,
                 std::make_unique<cta::engine::button::RectangleShapeButton>(
-                    std::make_pair(90, 140),
+                    std::make_pair(20, 140),
                     std::make_pair(290, 40),
+                    std::make_tuple(21, 27, 40),
                     "Synoptique des interventions",
                     true
                 )
             )            
-        );
-        _button[cta::game::MISSION_OVERVIEW]->setBorder(1, {0, 0, 0});
+        );        
         _button.insert(
             std::make_pair(
                 cta::game::VEHICLES_OVERVIEW,
                 std::make_unique<cta::engine::button::RectangleShapeButton>(
-                    std::make_pair(380, 140),
+                    std::make_pair(310, 140),
                     std::make_pair(240, 40),
+                    std::make_tuple(21, 27, 40),
                     "Synoptique des moyens",
                     true
                 )
             )            
-        );
-        _button[cta::game::VEHICLES_OVERVIEW]->setBorder(1, {0, 0, 0});
+        );        
         _button.insert(
             std::make_pair(
                 cta::game::RADIO_OVERVIEW,
                 std::make_unique<cta::engine::button::RectangleShapeButton>(
-                    std::make_pair(620, 140),
+                    std::make_pair(550, 140),
                     std::make_pair(70, 40),
+                    std::make_tuple(21, 27, 40),
                     "Radio",
                     true
                 )
             )            
-        );
-        _button[cta::game::RADIO_OVERVIEW]->setBorder(1, {0, 0, 0});
+        );        
         _timeText = nullptr;
         setTime();
         _timeText = std::make_unique<cta::engine::Text>(
-            std::make_pair(1590, 145),
-            std::make_tuple(0, 0, 0),
+            std::make_pair(1660, 145),
+            std::make_tuple(255, 255, 255),
             20,
             _time,
             "Resources/Font/OpenSans.ttf",
@@ -70,14 +65,14 @@ namespace cta::game::scenerymanager
                 std::make_pair(
                     scene,
                     std::make_unique<cta::engine::button::RectangleShapeButton>(
-                        std::make_pair(690, 140),
-                        std::make_pair(220, 40),
+                        std::make_pair(620, 140),
+                        std::make_pair(230, 40),
+                        std::make_tuple(21, 27, 40),
                         name,
                         true
                     )
                 )            
-            );
-            _button[scene]->setBorder(1, {0, 0, 0});
+            );            
             return true;
         }
         return false;
@@ -99,18 +94,17 @@ namespace cta::game::scenerymanager
     }
 
     void Menu::draw(std::shared_ptr<cta::engine::Window> &window, const EScene &scene) {        
-        for (auto const &button : _button) {
-            if ((button.second)->isHovered(cta::engine::Event::getMousePosition(window->getPosition())) && (button.second)->isClickable()) {
-                (button).second->setBackground(std::make_tuple(236, 240, 241));
-            } else if (button.first == scene) {
-                (button).second->setBackground(std::make_tuple(236, 240, 241));
+        for (auto const &button : _button) {                        
+            if (button.first == scene) {
+                (button).second->setBackground(std::make_tuple(255, 131, 0));
+            } else if ((button.second)->isHovered(cta::engine::Event::getMousePosition(window->getPosition())) && (button.second)->isClickable()) {
+                (button).second->setBackground(std::make_tuple(117, 21, 30));
             } else {
-                (button).second->setBackground(std::make_tuple(255, 255, 255));
+                (button).second->setBackground(std::make_tuple(21, 27, 40));
             }
             (button.second)->draw(window);
         }
         setTime();
-        window->draw(_timeText->getText());
-        window->draw(_hr->getShape());
+        window->draw(_timeText->getText());        
     }
 }

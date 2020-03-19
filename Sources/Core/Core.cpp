@@ -25,7 +25,7 @@ namespace cta {
                 game->catchEvent();
             }
             game->run();
-            window->clear(std::make_tuple(255, 255, 255));
+            window->clear(std::make_tuple(21, 27, 40));
             game->draw();
             window->display();            
         }

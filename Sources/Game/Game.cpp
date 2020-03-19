@@ -60,6 +60,7 @@ namespace cta::game
     }
 
     void Game::draw() {
+        updateMissionBoard();
         _navbar->draw(_window);
         _manager->draw(_window);
         if (!_isCallable && _call != nullptr)
@@ -69,9 +70,8 @@ namespace cta::game
     }
 
     void Game::dispatchUserCall() {                
-        srand(time(NULL));        
-        if (18 == 18) {
-        //if ((rand() % 30) == 18) {
+        srand(time(NULL));                
+        if ((rand() % 30) == 18) {
             _call = std::make_unique<cta::shared::CallPopup>(_window, _settings->getSound());
             _isCallable = false;
         }        
@@ -81,6 +81,10 @@ namespace cta::game
         bool success = _manager->addEntry(cta::game::CREATE_MISSION, "Nouvelle Intervention *");
         if (success)
             _manager->setSceneType(cta::game::CREATE_MISSION);        
+    }
+
+    void Game::updateMissionBoard() {
+        _navbar->updateMission(_manager->MissionManager()->getMission());
     }
 
     bool Game::isOnCall() {        

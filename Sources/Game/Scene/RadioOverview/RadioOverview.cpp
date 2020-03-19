@@ -2,7 +2,7 @@
 
 namespace cta::game::scene
 {
-    RadioOverview::RadioOverview() {        
+    RadioOverview::RadioOverview(std::shared_ptr<cta::shared::MissionManager> manager) {        
         _text = std::make_unique<cta::engine::Text>(
             std::make_pair(60, 200),
             std::make_tuple(0, 0, 0),
@@ -11,6 +11,7 @@ namespace cta::game::scene
             "Resources/Font/OpenSans.ttf",
             cta::engine::textStyle::REGULAR
         );
+        _manager = manager;
     }
 
     void RadioOverview::performScene() {

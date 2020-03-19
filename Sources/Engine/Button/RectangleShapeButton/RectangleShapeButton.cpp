@@ -5,19 +5,22 @@ namespace cta::engine::button {
     RectangleShapeButton::RectangleShapeButton(
         std::pair<std::size_t, std::size_t> pos,
         std::pair<std::size_t, std::size_t> size,
+        std::tuple<unsigned short int, unsigned short int, unsigned short int> color,
         std::string str,
         bool isClickable
     ) {
         _isClickable = isClickable;
         _pos = pos;
         _size = size;
+        _color = color;
         _shape = std::make_unique<cta::engine::shape::RectangleShape>(
             _pos,
-            _size            
+            _size,
+            _color
         );        
         _text = std::make_unique<cta::engine::Text>(
             std::make_pair(_pos.first + 10, _pos.second + 5),
-            std::make_tuple(0, 0, 0),
+            std::make_tuple(255, 255, 255),
             20,
             str,
             "Resources/Font/OpenSans.ttf",

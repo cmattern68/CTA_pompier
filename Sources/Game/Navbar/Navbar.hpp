@@ -14,6 +14,8 @@ namespace cta::game {
             Navbar &operator=(const Navbar &) = delete;
             void draw(std::shared_ptr<cta::engine::Window> &window);
 
+            void updateMission(const std::size_t &);
+
             bool onEvent(std::shared_ptr<cta::engine::Window> &, std::shared_ptr<cta::engine::Event> &);
         private:
             std::unique_ptr<cta::engine::shape::RectangleShape> _background;

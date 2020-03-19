@@ -10,7 +10,7 @@ namespace cta::engine::button {
     class RectangleShapeButton : public IButton {
         public:
             ~RectangleShapeButton() = default;
-            RectangleShapeButton(std::pair<std::size_t, std::size_t>, std::pair<std::size_t, std::size_t>, std::string, bool);
+            RectangleShapeButton(std::pair<std::size_t, std::size_t>, std::pair<std::size_t, std::size_t>, std::tuple<unsigned short int, unsigned short int, unsigned short int>, std::string, bool);
             RectangleShapeButton(const RectangleShapeButton &) = delete;
             RectangleShapeButton &operator=(const RectangleShapeButton &) = delete;
 
@@ -30,6 +30,7 @@ namespace cta::engine::button {
             bool _isClickable;
             std::pair<std::size_t, std::size_t> _pos;
             std::pair<std::size_t, std::size_t> _size;
+            std::tuple<unsigned short int, unsigned short int, unsigned short int> _color;
             std::unique_ptr<cta::engine::shape::RectangleShape> _shape;
             std::unique_ptr<cta::engine::Text> _text;
 

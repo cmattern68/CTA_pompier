@@ -3,9 +3,9 @@
 
 namespace cta::game::scene
 {
-    CreateMission::CreateMission() {                
+    CreateMission::CreateMission(std::shared_ptr<cta::shared::MissionManager> manager) {                
         _close = std::make_unique<cta::engine::button::RoundedRectangleShapeButton>(
-            std::make_pair(1750, 840),
+            std::make_pair(1780, 840),
             std::make_pair(110 ,50),
             std::make_tuple(188, 21, 28),
             "Annuler",
@@ -13,12 +13,13 @@ namespace cta::game::scene
         );
 
         _save = std::make_unique<cta::engine::button::RoundedRectangleShapeButton>(
-            std::make_pair(1585, 840),
+            std::make_pair(1615, 840),
             std::make_pair(155 ,50),
             std::make_tuple(39, 174, 96),
             "Declancher",
             true
         );
+        _manager = manager;        
     }
 
     void CreateMission::performScene() {

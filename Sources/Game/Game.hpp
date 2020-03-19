@@ -21,6 +21,7 @@ namespace cta::game {
         private:
             void dispatchUserCall();
             void callAnswer();
+            void updateMissionBoard();
             bool isOnCall();
 
             std::shared_ptr<cta::engine::Window> _window;
